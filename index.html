@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/base_style.css">
+    <link rel="stylesheet" href="css/main_menu_style.css">
+    <link rel="stylesheet" href="css/game_style.css">
+    <title>GTMN</title>
+    <script type="module" src="js/game.js"></script>
+</head>
+<body>
+    <div id="menu">
+        <h1>Welcome to Guess The Magic Number!</h1>
+        <p>Please choose a difficulty level:</p>
+        <div class="difficulty-buttons">
+            <button type="button" id="easy-button">Easy</button>
+            <button type="button" id="medium-button">Medium</button>
+            <button type="button" id="hard-button">Hard</button>
+        </div>
+    </div>
+    <div id="game" style="display: none">
+        <h1 id="mode-title"></h1>
+        <p id="choose-advice">Choose a number between 0 and 100</p>
+        <input type="text" autocomplete="off" minlength="1" maxlength="100" placeholder="0 - 100" id="magic-number-input">
+        <button type="button" id="magic-number-choose-button">Choose</button>
+        <p id="attempts"></span></p>
+        <p id="hint"></p>
+    </div>
+    <div id="win-screen" style="display: none">
+        <h1>You win!</h1>
+    </div>
+    <button type="button" id="return-button" style="display: none"></button>
+</body>
+</html>
