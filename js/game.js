@@ -94,8 +94,12 @@ function checkAnswer() {
             hint.textContent = "Almost there!";
             game_statistics.attempts--;
         }
+        else if (distance_from_magic_number/game_statistics.magic_number > 0.05) {
+            hint.textContent = "It's really close now!";
+            game_statistics.attempts--;
+        }
         else if (distance_from_magic_number/game_statistics.magic_number > 0) {
-            hint.textContent = "Just a little bit closer!";
+            hint.textContent = "It's here!";
             game_statistics.attempts--;
         }
         else {
@@ -105,11 +109,10 @@ function checkAnswer() {
         
     }
 
-    attemptsText.textContent =
-        `Attempts left: ${game_statistics.attempts}`;
+    attemptsText.textContent = 'Attempts left: ' + game_statistics.attempts;
 
     if (game_statistics.attempts === 0) {
-        hint.textContent = "Game over!";
+        showGameOver();
     }
 }
 
@@ -161,6 +164,17 @@ function goToMainMenu() {
 function showWinScreen() {
     game.style.display = "none";
     win_screen.style.display = "block";
+    win_screen.innerHTML = "<h1>You won!<h1>";
+    if (game_statistics.difficulty_selected === Difficulties.HARD) {
+        win_screen.innerHTML += "Amazing! You beated hard mode!";
+    }
+    document.getElementById("return-button").style.display = "block";
+}
+
+function showGameOver() {
+    game.style.display = "none";
+    win_screen.style.display = "block";
+    win_screen.innerHTML = "<h1>Game Over<h1>";
     document.getElementById("return-button").style.display = "block";
 }
 
